@@ -1,0 +1,2 @@
+#tghis is backend project  following video of chai aur code and making project like youtube
+model of this project link:-[Model Link](https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUWFiMUcyd1RTTEgydXUxaE1pYkZiQnxBR3JiS2FsYV9OMmxWQ0ViV1paUzZSaFdfMTgwLWJRbmxiZTNYNkFaUTBRUEdsa1JhaWFRQlpLTkxPQ0RlMDBzOHVDSEpzVjFIeGRacVpDaDNILTBWS1VqQnd2NnBJeVkwa0dG&q=https%3A%2F%2Fapp.eraser.io%2Fworkspace%2FYtPqZ1VogxGy1jzIDkzj%3Forigin%3Dshare&v=9B4CvtzXRpc)
