@@ -11,6 +11,9 @@
     "expressss",
     "node"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "Vinayak",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
