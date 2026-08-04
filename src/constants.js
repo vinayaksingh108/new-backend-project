@@ -1,2 +1,2 @@
-export const DB_Name="Vin_TUBE"
+export const DB_NAME="Vin_TUBE"
 

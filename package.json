@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemin src/index,js"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
@@ -19,8 +19,15 @@
     "prettier": "^3.9.6"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cookie": "^2.0.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.8.1"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.8.1",
+    "parser": "^0.1.4"
   }
 }
