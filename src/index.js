@@ -2,9 +2,11 @@ import dotenv from "dotenv";
 import connectDb from "./db/index.js";
 
 
+
 dotenv.config({
     path: "./.env"
 });
+import { app } from "./app.js";
 
 connectDb().then(()=>{
 app.on("error",(error)=>{

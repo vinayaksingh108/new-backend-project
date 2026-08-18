@@ -9,7 +9,7 @@ const userSchema=new Schema(
             unique:true,
             lowercase:true,
             trim:true,
-            index:true//to enavble searchibg field
+            index:true,//to enavble searchibg field
 
         
         },
@@ -20,16 +20,12 @@ const userSchema=new Schema(
             lowercase:true,
             trim:true,
         },
-        fulllname:{
-            type:String,
-            required:true,
-            unique:false,
-            lowercase:false,
-            trim:true,
-            index:true//to enavble searchibg field
-
-        
-        },
+        fullName: {
+    type: String,
+    required: true,
+    index: true,
+    trim: true, 
+},
         avatar:{
             type:String,//cloudnary
             required:true,
@@ -40,7 +36,8 @@ const userSchema=new Schema(
             type:String
         },
         watchHistory:[
-            {typr:Schema.Types.ObjectId,
+            {
+                type:Schema.Types.ObjectId,
                 ref:"Video"
             }
         ],
@@ -61,7 +58,7 @@ const userSchema=new Schema(
 userSchema.pre("save",async function(next){
     //aisa krne k liye jab mai pass field ko check kru visit kru tab hi encrypt ho 
     if(!this.isModified("password")) return next();
-    this.password=bcrypt.hash(this.password,10)//ye next step pe jaane se phle pass ko entrypt krga 10 hash rounds me
+    this.password=await bcrypt.hash(this.password,10)//ye next step pe jaane se phle pass ko entrypt krga 10 hash rounds me
     next();
 })
 userSchema.methods.isPasswordCorrect=async function(password){
@@ -94,6 +91,6 @@ userSchema.methods.generateRefreshToken=function(){
     
 }
 
-export const User=mongoose.model("User",userScherma)
+export const User=mongoose.model("User",userSchema)
 
 
