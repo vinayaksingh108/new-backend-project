@@ -39,7 +39,7 @@ const videoSchema=new Schema({
         default:true
     },
     owner:{
-        typr:Schema.Types.ObjectId,
+        type:Schema.Types.ObjectId,
         ref:"User"
     }
 
