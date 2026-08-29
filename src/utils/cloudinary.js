@@ -19,7 +19,8 @@ const response=await cloudinary.uploader.upload(localFilePath,{
     resource_type:"auto"
 })
 //file has been uploaded successfully 
-console.log("FIle is uplaoded on claudinary",response.url);
+// console.log("FIle is uplaoded on claudinary",response.url);
+fs.unlinkSync(localFilePath);
 return response;
         }catch(error){
             fs.unlinkSync(localFilePath)//remove the loaclly saved temp file as the upload opration got failed 

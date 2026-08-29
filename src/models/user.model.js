@@ -20,7 +20,7 @@ const userSchema=new Schema(
             lowercase:true,
             trim:true,
         },
-        fullName: {
+        fullname: {
     type: String,
     required: true,
     index: true,
@@ -55,12 +55,14 @@ const userSchema=new Schema(
     timestamps:true
 })
 //hook to encrypt juast before savinh:prehook
-userSchema.pre("save",async function(next){
-    //aisa krne k liye jab mai pass field ko check kru visit kru tab hi encrypt ho 
-    if(!this.isModified("password")) return next();
-    this.password=await bcrypt.hash(this.password,10)//ye next step pe jaane se phle pass ko entrypt krga 10 hash rounds me
-    next();
-})
+// Hook to encrypt just before saving: prehook
+userSchema.pre("save", async function () {
+    // Aisa krne k liye jab mai pass field ko check kru visit kru tab hi encrypt ho 
+    if (!this.isModified("password")) return; 
+    
+    // Ye save hone se phle pass ko encrypt krega 10 hash rounds me
+    this.password = await bcrypt.hash(this.password, 10); 
+});
 userSchema.methods.isPasswordCorrect=async function(password){
     //brypt library can also check and verify the encrypted pass
     return await bcrypt.compare(password,this.password)//give pass aur user pass ko  compare krr lega
@@ -72,8 +74,8 @@ userSchema.methods.generateAccessToken=function(){
     return jwt.sign({
         _id:this._id,
         Email:this.Email,
-        usename:this.username,
-        fullName:this.fullName
+        username:this.username,
+        fullname:this.fullname
     },process.env.ACCESS_TOKEN_SECRET,{expiresIn:process.env.ACCESS_TOKEN_EXPIRY}
 )
     //jwt sign methofd generat etoken
@@ -84,8 +86,8 @@ userSchema.methods.generateRefreshToken=function(){
     return jwt.sign({
         _id:this._id,
         Email:this.Email,
-        usename:this.username,
-        fullName:this.fullName
+        username:this.username,
+        fullname:this.fullname
     },process.env.REFERSH_TOKEN_SECRET,{expiresIn:process.env.REFRESH_TOKEN_EXPIRY}
 )
     
