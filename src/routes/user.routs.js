@@ -28,6 +28,14 @@ router.route("/login").post(loginUser)
 //secured routes
 router.route("/logout").post(verifyJWT,logOutUser)
 router.route("/refresh-token").post(refreshAccessToken)
+router.route("/change-password").post(verifyJWt,changeCurrentpassword)
+router.route("/currect-user").get(verifyJWT,getCurrUser)
+router.route("/upadate-account-details").patch(verifyJWT,)//patch used agr post use krte toh sara det. update hojaayenge \
+router.route("/avatar").patch(verifyJWT,upload.single("avatar"),updateUserAvatar)
+router.route("/cover-image").patch(verifyJWT,upload.single("coverImage"),updateUserCoverImage)
+
+router.route("/c/:username").get(verifyJWT,getUserChannelProfile)
+router.route("/watch-history").get(verifyJWT,getWatchHistory)
 
 
 
